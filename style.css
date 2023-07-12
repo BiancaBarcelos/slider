@@ -4,31 +4,31 @@ html {
 }
 body {
     margin: 0;
-    font-family: 'Amatic SC', cursive;
     overflow-x: hidden;
+    font-family: 'Amatic SC', cursive;
 }
 .conteudo-slider {
-    position: relative;
-    height: 600px;
     width: 100%;
+    height: 600px;
+    position: relative;
 }
 .conteudo-slider img {
-    position: absolute;
-    width: 100%;
     top: 50%;
     left: 50%;
+    width: 100%;
+    position: absolute;
     transform: translate(-50%, -50%);
 }
 .conteudo-slider .conteudo-slider__text {
-    position: absolute;
+    top: 50%;
+    opacity: 0;
     z-index: 2;
+    right: 50px;
     color: white;
     text-align: right;
-    right: 50px;
-    top: 50%;
-    transform: translate(30%, -50%);
-    opacity: 0;
+    position: absolute;
     transition: all .4s .8s;
+    transform: translate(30%, -50%);
 }
 .slick-active .conteudo-slider .conteudo-slider__text {
     opacity: 1;
@@ -46,20 +46,31 @@ body {
     font-size: 4rem;
     font-weight: 400;
 }
+@media screen and (max-width:768px) {
+    .conteudo-slider img {
+        top: 0;
+        transform: translate(-50%, 0);
+    }
+    .conteudo-slider .conteudo-slider__text {
+        top: unset;
+        bottom: 2rem;
+    }
+}
 
 
 /*Config setas slick*/
 
 .slick-arrow {
-    position: absolute;
-    z-index: 3;
     top: 50%;
+    border: 0;
+    padding: 0;
+    z-index: 3;
+    width: 3rem;
+    overflow: hidden;
+    position: absolute;
+    color: transparent;
     transform: translate(0, -50%);
     background-color: transparent;
-    border: 0;
-    color: transparent;
-    width: 3rem;
-    padding: 0;
 }
 .slick-prev {
     left: .5rem;
@@ -82,27 +93,27 @@ body {
 /*Config dots slick*/
 
 .slick-dots {
-    position: absolute;
     margin: 0;
+    left: 50%;
+    gap: .5rem;
+    display: flex;
     padding: 1rem;
     list-style: none;
-    background-color: #00000066;
+    position: absolute;
     border-radius: 2rem;
-    display: flex;
-    gap: .5rem;
-    left: 50%;
+    background-color: #00000066;
     transform: translate(-50%, -150%);
 }
 .slick-dots li {
     height: 1rem;
 }
 .slick-dots button {
-    color: transparent;
     border: 0;
     padding: 0;
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
+    color: transparent;
     background-color: #ffffff66;
 }
 .slick-dots .slick-active button {
